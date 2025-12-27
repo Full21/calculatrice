@@ -5,14 +5,16 @@
 bin/
 target/
 
-# Tout le reste du src par défaut
-src/**/*
+# Tout ignorer par défaut
+src/**
 
-# Sauf les fichiers dans les dossiers ciblés
+# Sauf les fichiers .java dans les dossiers ciblés
+!src/main/java/calculatrice/**/*.java
+!src/main/java/visuel/**/*.java
 
-!src/main/java/calculatrice/.java
-!src/main/java/visuel/**
+# Ressources : tout suivre si tu veux
 !src/main/resources/**
+
 
 #Drive
 .tmp.driveupload

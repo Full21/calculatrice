@@ -1,0 +1,22 @@
+public static void fonction () {
+
+	String[] nomsPolices = GraphicsEnvironment.getLocalGraphicsEnvironment()
+        		.getAvailableFontFamilyNames();
+        
+        JFrame frame = new JFrame("Exemple de polices");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
+        frame.setSize(700, 800);
+        frame.setLayout(new FlowLayout()); // une colonne, plusieurs lignes
+
+
+        for (String policeNom : nomsPolices) {
+            JLabel label = new JLabel("Police: " + policeNom);
+            label.setFont(new Font(policeNom, Font.PLAIN, 20));
+            frame.add(label);
+        }
+
+        frame.repaint();
+        frame.setVisible(true);
+
+}

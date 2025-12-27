@@ -1,11 +1,19 @@
-# Eclipse
+# Eclipse & binaires
 .classpath
 .project
 .settings/
 bin/
 target/
-src/**
-!src/**/*.java
+
+# Tout le reste du src par défaut
+src/**/*
+
+# Sauf les fichiers dans les dossiers ciblés
+
+!src/main/java/calculatrice/.java
+!src/main/java/visuel/**
+!src/main/resources/**
+
 #Drive
 .tmp.driveupload
 

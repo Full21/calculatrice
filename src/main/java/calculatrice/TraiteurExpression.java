@@ -56,6 +56,47 @@ public class TraiteurExpression {
 		}
 		return operateurs;
 	}
+	
+	
+	private static boolean doitInsererFois(Object a, Object b) {
+
+	    boolean aNombre = a instanceof Double;
+	    boolean bNombre = b instanceof Double;
+
+	    boolean aParenFerme = a == Operateur.PARENT_FERME;
+	    boolean bParenOuvre = b == Operateur.PARENT_OUVRE;
+
+	    boolean aFonction = a instanceof Operateur op && op.estUnaire();
+	    boolean bFonction = b instanceof Operateur op && op.estUnaire();
+
+	    return
+	        (aNombre && bParenOuvre) ||
+	        (aParenFerme && bNombre) ||
+	        (aParenFerme && bParenOuvre) ||
+	        (aNombre && bFonction) ||
+	        (aFonction && bParenOuvre);
+	}
+	
+
+	
+	private static List<Object> insererMultiplicationsImplicites(List infixe) {
+	    List<Object> resultat = new ArrayList<>();
+
+	    for (int i = 0; i < infixe.size(); i++) {
+	        Object courant = infixe.get(i);
+	        resultat.add(courant);
+
+	        if (i == infixe.size() - 1) continue;
+
+	        Object suivant = infixe.get(i + 1);
+
+	        if (doitInsererFois(courant, suivant)) {
+	            resultat.add(Operateur.FOIS);
+	        }
+	    }
+	    return resultat;
+	}
+	
 
 	public static List expressionInfixe(String expression) {
 		StringBuilder sb = new StringBuilder(expression);
@@ -77,7 +118,7 @@ public class TraiteurExpression {
 			}
 		}
 
-		return infixe;
+		return insererMultiplicationsImplicites(infixe);
 	}
 
 	public static List expressionPostFixe(List expressionInfixe) {
@@ -120,4 +161,13 @@ public class TraiteurExpression {
 		return sortie;
 	}
 
+	
+	public static void main(String args[]) {
+		List a = expressionInfixe("7(4+5)6");
+		System.out.println(a);
+		System.out.println(expressionPostFixe(a));
+		
+		
+	}
+	
 }

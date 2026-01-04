@@ -33,11 +33,4 @@ public class CommandeEgale implements Commande {
 			Sortie.getSortie().setText(e.getMessage());
 		}				
 	}
-	
-	public static void main(String arg[]) {
-		List expressionPostfixe = List.of(7.0, Operateur.MOINS, 4.0, Operateur.PLUS, Operateur.COS);
-		Double a = MoteurCalculatrice.calculer(expressionPostfixe);
-		System.out.println(a);
-		
-	}
 }

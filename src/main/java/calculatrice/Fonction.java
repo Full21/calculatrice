@@ -97,15 +97,17 @@ public class Fonction {
     }
 
     public static double logarithmeNaturel(double x) {
+    	if(x <= 0) throw new ArithmeticException("Erreur mathématique");
         return Math.log(x);
     }
 
     public static double logarithmeBase10(double x) {
+    	if(x <= 0) throw new ArithmeticException("Erreur mathématique");
         return Math.log10(x);
     }
 
     public static double logarithmeBaseN(double x, double n) {
-        return Math.log(x) / Math.log(n);
+        return logarithmeNaturel(x) / logarithmeNaturel(n);
     }
 
     // 🎯 Arrondis & parties entières
@@ -131,6 +133,7 @@ public class Fonction {
     // 🔁 Inverse & pourcentages
 
     public static double inverse(double x) {
+    	if(x == 0) throw new ArithmeticException("Erreur mathématique");
         return 1 / x;
     }
 

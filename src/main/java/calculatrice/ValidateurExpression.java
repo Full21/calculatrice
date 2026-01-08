@@ -126,14 +126,5 @@ public class ValidateurExpression {
 	    return (expression.toString().matches(NOMBREVALIDE));
 	}
 
-	
-	public static void main(String[] args) {
-
-		StringBuilder sb = new StringBuilder("(7!)+123");
-		System.out.println(trouverPortionFactoriel(sb));
-	    
-	}
-
-
 }
 

@@ -66,15 +66,13 @@ public class TraiteurExpression {
 	    boolean aParenFerme = a == Operateur.PARENT_FERME;
 	    boolean bParenOuvre = b == Operateur.PARENT_OUVRE;
 
-	    boolean aFonction = a instanceof Operateur op && op.estUnaire();
 	    boolean bFonction = b instanceof Operateur op && op.estUnaire();
 
 	    return
 	        (aNombre && bParenOuvre) ||
 	        (aParenFerme && bNombre) ||
 	        (aParenFerme && bParenOuvre) ||
-	        (aNombre && bFonction) ||
-	        (aFonction && bParenOuvre);
+	        (aNombre && bFonction);
 	}
 	
 
@@ -159,15 +157,6 @@ public class TraiteurExpression {
 			sortie.add(pileOp.pop());
 
 		return sortie;
-	}
-
-	
-	public static void main(String args[]) {
-		List a = expressionInfixe("7(4+5)6");
-		System.out.println(a);
-		System.out.println(expressionPostFixe(a));
-		
-		
 	}
 	
 }

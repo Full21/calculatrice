@@ -45,11 +45,4 @@ public class CalculatriceUI extends JFrame implements Visuel{
         pack();
 		
 	}
-	
-	
-	public static void main(String[] args) {
-		CalculatriceUI calculatrice = new CalculatriceUI("Calculatrice");
-		calculatrice.setVisible(true);
-	}
-
 }

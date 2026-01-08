@@ -9,8 +9,7 @@ target/
 src/**
 
 # Sauf les fichiers .java dans les dossiers ciblés
-!src/main/java/calculatrice/**/*.java
-!src/main/java/visuel/**/*.java
+!src/main/java/**/*.java
 
 # Ressources : tout suivre si tu veux
 !src/main/resources/**
